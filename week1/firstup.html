@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General page styling */
+        body {
+            background-color: black;
+            color: white; /* All text is white */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styling */
+        h1 {
+            color: white; /* White text for the header */
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 16px;
+            color: white; /* White text for paragraphs */
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Link styling */
+        a {
+            color: #00BFFF; /* Deep Sky Blue */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image styling */
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 80%; /* Make image responsive */
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: square;
+            margin: 20px;
+            padding-left: 40px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            color: white; /* White text for list items */
+        }
+
+        /* Form styling */
+        form {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            color: white; /* White text for form labels */
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #444;
+            color: white; /* White text for form inputs */
+        }
+
+        button {
+            background-color: #00BFFF; /* Deep Sky Blue */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1E90FF; /* Dodger Blue */
+        }
+
+        input[type="submit"]:hover, button:hover {
+            background-color: #32CD32; /* Lime Green */
+        }
+    </style>
+</head>
+<body>
+    <h1>INFECTED MUSHROOOM WIDER</h1>
+    <p>Wider is a mono-to-stereo converter and stereo image widener plug-in (AUv3) by Infected Mushroom and Polyverse. It is mono compatible and does not color the sound. Wider -- derived from the massively popular stereo feature of its sibling Manipulator -- expands the stereo image of a mono signal to an awe-inspiring amount of width. However, Wider is a unique stereo plugin in the sense that it is completely “mono-compatible," meaning that any signal that has been extended will always remain in phase with itself, even if summed to mono. Many stereo effects currently in use have the nasty habit of knocking signals out of phase which can quickly make a track sound muddy and unbalanced, or make sounds seem flat and lacking dynamics if one isn’t mindful of the effect. Thanks to Wider’s one-of-a-kind all-pass and comb filtering algorithm, a natural-sounding stereo image is created from a mono channel without compromising the phase between the sides. Because Wider cancels itself out when summed to mono, the original signal is left intact. Wider can be used to increase the stereo image of any mono signal up to 200% of full stereo for an extra wide, exaggerated effect.</p>
+    <a href="https://www.image-line.com/">Visit the plugin</a>
+    <p>Images for plugin</p>
+    <img src="wider.png" alt="Wider">
+    <ul>
+        <li>Plugin desc A</li>
+        <li>Plugin desc B</li>
+        <li>Plugin desc C</li>
+    </ul>
+    <a href="https://polyversemusic.com/products/wider/" target="_blank">More about wider</a>
+   
+    <p>Leave a feedback!</p>
+    <form action="/submit" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="email">
+        </div>
+        <div>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback here..."></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
