@@ -1,14 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <link rel="stylesheet" href="external.css">
+    <link rel="stylesheet" href="image-transitions.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Page</title>
-    <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h1>Hello, World!</h1>
-    <p>This is a paragraph styled with CSS.</p>
-  </body>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <h1>Plugin Name</h1>
+    <p>Description</p>
+    <a href="https://www.image-line.com/">Visit the Plugin</a>
+    <p>Images for Plugin</p>
+
+    <!-- Image Gallery -->
+    <div id="image-gallery">
+        <img src="wider1.png" alt="Image 1" class="gallery-image visible">
+        <img src="wider2.png" alt="Image 2" class="gallery-image">
+        <img src="wider3.jpg" alt="Image 3" class="gallery-image">
+        <button id="prev" class="gallery-btn">Prev</button>
+        <button id="next" class="gallery-btn">Next</button>
+    </div>
+
+    <!-- Dots for Navigation -->
+    <div id="dots-container"></div>
+
+    <ul id="plugin-descriptions"></ul>
+
+    <a href="https://polyversemusic.com/products/wider/" target="_blank">More about Wider</a>
+
+    <p>Leave Feedback!</p>
+    <form action="/submit" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="Email">Email:</label>
+            <input type="text" id="Email" name="Email">
+        </div>
+        <div>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" cols="40" placeholder="Write your feedback here..."></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.gallery-image');
+        const dotsContainer = document.getElementById('dots-container');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        // Function to show the correct image
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('visible');  // Remove the 'visible' class from all images
+            });
+            images[index].classList.add('visible');  // Add the 'visible' class to the current image
+            updateDots(index);
+        }
+
+        // Function to create dots
+        function createDots() {
+            images.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => showImage(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Function to update dots based on the current image
+        function updateDots(index) {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        });
+
+        // Initial image display and create dots
+        createDots();
+        showImage(currentIndex);
+    </script>
+</body>
 </html>

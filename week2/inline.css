@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #2f2f2f; /* Lighter dark background */
+  color: #5a9bd5; /* Light blue text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Header */
+h1 {
+  color: #5a9bd5; /* Light blue text */
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Paragraph */
+p {
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 15px;
+  color: #5a9bd5; /* Light blue text */
+  text-align: center;
+}
+
+/* Link */
+a {
+  color: #5a9bd5; /* Light blue text */
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+a:hover {
+  color: #e76f51; /* Slight orange on hover */
+  text-decoration: underline;
+}
+
+/* Image */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* List */
+ul {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  font-size: 1.1rem;
+  color: #5a9bd5; /* Light blue text */
+  margin-bottom: 8px;
+}
+
+/* Feedback Form */
+form {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #5a9bd5; /* Light blue text */
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #e76f51; /* Slight orange background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #f4a261; /* Slight orange on hover */
+}
