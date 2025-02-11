@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Form Validation</title>
+</head>
+<body>
+
+  <h2>Simple Form</h2>
+  <form onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value;
+      if (name === "") {
+        alert("Name must be filled out!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>

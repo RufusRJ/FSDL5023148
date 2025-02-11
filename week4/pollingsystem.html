@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polling System with Live Vote Counter</title>
+</head>
+<body>
+
+  <h2>What's your favorite programming language?</h2>
+
+  <label>
+    <input type="radio" name="language" value="JavaScript"> 
+    JavaScript (<span id="jsCount">0</span>)
+  </label><br>
+
+  <label>
+    <input type="radio" name="language" value="Python"> 
+    Python (<span id="pythonCount">0</span>)
+  </label><br>
+
+  <label>
+    <input type="radio" name="language" value="C++"> 
+    C++ (<span id="cppCount">0</span>)
+  </label><br>
+
+  <label>
+    <input type="radio" name="language" value="Java"> 
+    Java (<span id="javaCount">0</span>)
+  </label><br><br>
+
+  <button onclick="submitPoll()">Submit</button>
+
+  <script>
+    // Vote counters
+    let votes = {
+      JavaScript: 0,
+      Python: 0,
+      "C++": 0,
+      Java: 0
+    };
+
+    function submitPoll() {
+      let selected = document.querySelector('input[name="language"]:checked');
+      
+      if (selected) {
+        votes[selected.value]++; // Increment vote count for the selected option
+        updateResults();
+      } else {
+        alert("Please select an option!");
+      }
+    }
+
+    function updateResults() {
+      document.getElementById("jsCount").innerText = votes["JavaScript"];
+      document.getElementById("pythonCount").innerText = votes["Python"];
+      document.getElementById("cppCount").innerText = votes["C++"];
+      document.getElementById("javaCount").innerText = votes["Java"];
+    }
+  </script>
+
+</body>
+</html>

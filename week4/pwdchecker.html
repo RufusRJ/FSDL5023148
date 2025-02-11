@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker</title>
+</head>
+<body>
+
+  <h2>Password Strength Checker</h2>
+  <input type="password" id="password" oninput="checkStrength()" placeholder="Enter password">
+  <p id="strength"></p>
+
+  <script>
+    function checkStrength() {
+      const pwd = document.getElementById("password").value;
+      const msg = document.getElementById("strength");
+      msg.innerText = !pwd ? "" : pwd.length < 6 ? "Weak" : /[A-Z]/.test(pwd) && /\d/.test(pwd) && /[@$!%*?&]/.test(pwd) ? "Strong" : "Medium";
+      msg.style.color = { "Weak": "red", "Medium": "orange", "Strong": "green" }[msg.innerText] || "black";
+    }
+  </script>
+
+</body>
+</html>

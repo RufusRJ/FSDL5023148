@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All-in-One Utility Tool</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #374151;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #6b21a8;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      display: block;
+      color: white;
+      background-color: #9333ea;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px auto;
+      width: 80%;
+      max-width: 300px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #7e22ce;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 400px;
+    }
+
+    input, select, button {
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border: 1px solid #d1d5db;
+      width: 100%;
+    }
+
+    button {
+      background-color: #16a34a;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #15803d;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background: #fef3c7;
+      padding: 12px;
+      border: 1px solid #facc15;
+      border-radius: 8px;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background: #fde68a;
+    }
+
+    #result {
+      font-weight: bold;
+      color: #6b21a8;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => section.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</head>
+<body>
+  <h1>All-in-One Utility Tool</h1>
+
+  <nav>
+    <a href="#" onclick="showSection('ageCalculator')">Age Calculator</a>
+    <a href="#" onclick="showSection('pollingSystem')">Polling System</a>
+    <a href="#" onclick="showSection('pwdChecker')">Password Strength Checker</a>
+    <a href="#" onclick="showSection('tempConverter')">Temperature Converter</a>
+    <a href="#" onclick="showSection('todoList')">To-Do List</a>
+    <a href="#" onclick="showSection('formValidation')">Form Validation</a>
+  </nav>
+
+  <!-- Age Calculator Section -->
+  <section id="ageCalculator" class="hidden">
+    <h2>Age Calculator</h2>
+    <label for="birthYear">Enter your birth year:</label>
+    <input type="number" id="birthYear">
+    <button onclick="calculateAge()">Calculate</button>
+    <p id="ageResult"></p>
+    <script>
+      function calculateAge() {
+        let birthYear = document.getElementById("birthYear").value;
+        let age = new Date().getFullYear() - birthYear;
+        document.getElementById("ageResult").innerText = `Your age is: ${age}`;
+      }
+    </script>
+  </section>
+
+  <!-- Polling System Section -->
+  <section id="pollingSystem" class="hidden">
+    <h2>Polling System</h2>
+    <label><input type="radio" name="language" value="JavaScript"> JavaScript</label>
+    <label><input type="radio" name="language" value="Python"> Python</label>
+    <label><input type="radio" name="language" value="C++"> C++</label>
+    <button onclick="submitPoll()">Submit</button>
+    <script>
+      let votes = { JavaScript: 0, Python: 0, "C++": 0 };
+      function submitPoll() {
+        let selected = document.querySelector('input[name="language"]:checked');
+        if (selected) {
+          votes[selected.value]++;
+          alert(`${selected.value} now has ${votes[selected.value]} votes.`);
+        } else {
+          alert("Please select an option!");
+        }
+      }
+    </script>
+  </section>
+
+  <!-- Password Strength Checker Section -->
+  <section id="pwdChecker" class="hidden">
+    <h2>Password Strength Checker</h2>
+    <input type="password" id="password" oninput="checkStrength()" placeholder="Enter password">
+    <p id="strength"></p>
+    <script>
+      function checkStrength() {
+        const pwd = document.getElementById("password").value;
+        const msg = document.getElementById("strength");
+        msg.innerText = !pwd ? "" : pwd.length < 6 ? "Weak" : /[A-Z]/.test(pwd) && /\d/.test(pwd) && /[@$!%*?&]/.test(pwd) ? "Strong" : "Medium";
+        msg.style.color = { "Weak": "red", "Medium": "orange", "Strong": "green" }[msg.innerText] || "black";
+      }
+    </script>
+  </section>
+
+  <!-- Temperature Converter Section -->
+  <section id="tempConverter" class="hidden">
+    <h2>Temperature Converter</h2>
+    <input type="number" id="tempInput" placeholder="Enter temperature">
+    <select id="unit">
+      <option value="C">Celsius to Fahrenheit</option>
+      <option value="F">Fahrenheit to Celsius</option>
+    </select>
+    <button onclick="convertTemp()">Convert</button>
+    <p id="tempResult"></p>
+    <script>
+      function convertTemp() {
+        const temp = parseFloat(document.getElementById("tempInput").value);
+        const unit = document.getElementById("unit").value;
+        if (isNaN(temp)) return alert("Please enter a valid number");
+        const result = unit === "C" ? (temp * 9 / 5) + 32 : (temp - 32) * 5 / 9;
+        document.getElementById("tempResult").innerText = `Result: ${result.toFixed(2)}° ${unit === "C" ? "F" : "C"}`;
+      }
+    </script>
+  </section>
+
+  <!-- To-Do List Section -->
+  <section id="todoList" class="hidden">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Add a task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+    <script>
+      function addTask() {
+        const task = document.getElementById("taskInput").value;
+        if (!task) return;
+        const li = document.createElement("li");
+        li.textContent = task;
+        li.onclick = () => li.remove();
+        document.getElementById("taskList").appendChild(li);
+        document.getElementById("taskInput").value = "";
+      }
+    </script>
+  </section>
+
+  <!-- Form Validation Section -->
+  <section id="formValidation" class="hidden">
+    <h2>Simple Form</h2>
+    <form onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      function validateForm() {
+        let name = document.getElementById("name").value;
+        if (name === "") {
+          alert("Name must be filled out!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </section>
+</body>
+</html>
