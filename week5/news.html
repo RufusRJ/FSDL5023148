@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="newsstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h2>News App</h2>
+        <select id="category" onchange="getNews()">
+            <option value="general">General</option>
+            <option value="business">Business</option>
+            <option value="technology">Technology</option>
+            <option value="sports">Sports</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="entertainment">Entertainment</option>
+        </select>
+        <div id="news-result"></div>
+    </div>
+
+    <!-- News Effects -->
+    <div id="news-effects"></div>
+
+    <script src="newsscript.js"></script>
+</body>
+</html>
