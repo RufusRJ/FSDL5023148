@@ -8,21 +8,23 @@
 </head>
 <body>
     <div class="container">
-        <h2>News App</h2>
-        <select id="category" onchange="getNews()">
+        <h1>News App</h1>
+
+        <select id="category">
             <option value="general">General</option>
             <option value="business">Business</option>
-            <option value="technology">Technology</option>
             <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
             <option value="health">Health</option>
             <option value="science">Science</option>
             <option value="entertainment">Entertainment</option>
         </select>
-        <div id="news-result"></div>
-    </div>
+        
+        <button onclick="getNews()">Get News</button>
 
-    <!-- News Effects -->
-    <div id="news-effects"></div>
+        <div id="news-result"></div>
+        <div id="news-effects"></div>
+    </div>
 
     <script src="newsscript.js"></script>
 </body>

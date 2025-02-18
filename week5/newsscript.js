@@ -10,7 +10,8 @@ async function getNews() {
         const data = await response.json();
         console.log(data); // Log the entire response to check if data is fetched correctly
 
-        if (response.status === 200) {
+        // Check if the response status is "ok"
+        if (data.status === "ok" && data.articles.length > 0) {
             let newsHTML = '';
             data.articles.forEach(article => {
                 newsHTML += `
