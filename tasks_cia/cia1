@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Column Layout</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; margin: 0;">
+
+    <div style="display: flex; gap: 20px;">
+        <aside style="width: 25%; background-color: #f4f4f4; padding: 20px;">
+            <h2>Sidebar</h2>
+            <p>Links or additional content here.</p>
+        </aside>
+        <main style="width: 75%; background-color: #ddd; padding: 20px;">
+            <h1>Main Content</h1>
+            <p>This is the main content area.</p>
+        </main>
+    </div>
+
+</body>
+</html>
