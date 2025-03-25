@@ -4,17 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
     <script>
         function validatePassword() {
             const password = prompt("Please enter your password:");
-            if (password.length >= 8) {
-                alert("Password is valid.");
-            } else {
+            if (password.length < 8) {
                 alert("Password must be at least 8 characters long.");
+                return;
             }
+
+            const uniqueChars = new Set(password).size;
+            let strength = "Weak";
+
+            if (uniqueChars >= 5 && uniqueChars < 8) {
+                strength = "Medium";
+            } else if (uniqueChars >= 8) {
+                strength = "Strong";
+            }
+
+            alert(`Password is valid. Strength: ${strength}`);
         }
     </script>
 </head>
 <body onload="validatePassword()">
+    <div class="container">
+        <h1>Password Validator</h1>
+        <p>Please enter your password when prompted.</p>
+    </div>
 </body>
 </html>
